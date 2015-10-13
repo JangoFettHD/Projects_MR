@@ -3,12 +3,16 @@ public class RNA_to_PROTEIN {
     public static void toProtein(String a){
         int temp = a.length();
 
-        String[] CODON_TABLE = new String[]{"LOL", "KEK", "PEP"};
-        char[] CODON_TABLE_1 = new char[]{'M', 'L', 'P'};
+        String[] CODON_TABLE = new String[]{"UUU", "UUC", "UUA"};
+        //String[][] CODON_TABLE = new String[][]{{"UUU", "F"}, {"UUC", "F"}, {"UUA", "L"}};
+        char[] CODON_TABLE_1 = new char[]{'M', 'L', '0'};
         String Sg;
-        int o;
+        int o =0;
         for (int i=1; i<(a.length()-1); i=i+3) {
-             o=0;
+            if (CODON_TABLE_1[o]=='0'){
+                break;
+            }
+            o=0;
             Sg = "";
             char g = a.charAt(i - 1);
             char g1 = a.charAt(i);
@@ -22,6 +26,9 @@ public class RNA_to_PROTEIN {
             while(true) {
 
                 if (Sg.equals(CODON_TABLE[o])){
+                    if (CODON_TABLE_1[o]=='0'){
+                        break;
+                    }
                     System.out.print(CODON_TABLE_1[o]);
                     break;
                 }
