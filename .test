@@ -6,17 +6,21 @@ public class RNA_to_PROTEIN {
         String[] CODON_TABLE = new String[]{"LOL", "KEK", "PEP"};
         char[] CODON_TABLE_1 = new char[]{'M', 'L', 'P'};
         String Sg;
+        int o;
         for (int i=1; i<(a.length()-1); i=i+3) {
+             o=0;
             Sg = "";
             char g = a.charAt(i - 1);
             char g1 = a.charAt(i);
             char g2 = a.charAt(i + 1);
-            Sg += g;
-            Sg += g1;
-            Sg += g2;
+            char data[]={g, g1, g2};
+            Sg = new String(data);
+            /*for (int i=0; i<a.length(); i+=3) {
+            Sg = a.substring(i, 3);
+            }*/
             //System.out.println(Sg);
             while(true) {
-                int o=0;
+
                 if (Sg.equals(CODON_TABLE[o])){
                     System.out.print(CODON_TABLE_1[o]);
                     break;
@@ -24,9 +28,7 @@ public class RNA_to_PROTEIN {
                 o++;
             }
            // System.out.println("test");
-        /*for (int i=0; i<a.length(); i+=3) {
-            Sg = a.Substring(i, 3);
-        }*/
+
         }
 
     }
